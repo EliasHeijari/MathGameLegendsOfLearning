@@ -8,7 +8,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class PlayerScoreManager : MonoBehaviour
 {
     private Player player;
-    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] private TextMeshProUGUI scoreShowText;
     public event EventHandler OnMathObjectTriggered;
 
 
@@ -21,9 +21,31 @@ public class PlayerScoreManager : MonoBehaviour
     {
         if (other.TryGetComponent(out MathObject mathObject))
         {
-            player.Score += mathObject.GetValue();
+            MathObjectParent mathObjParent = mathObject.GetComponentInParent<MathObjectParent>();
+            if (mathObjParent.GetFirstMathObject() == mathObject && mathObjParent.FirstOneWin())
+            {
+                scoreShowText.color = Color.green;
+            }
+            else if (mathObjParent.GetFirstMathObject() == mathObject && !mathObjParent.FirstOneWin())
+            {
+                scoreShowText.color = Color.red;
+            }
+            else if (mathObjParent.GetFirstMathObject() != mathObject && !mathObjParent.FirstOneWin())
+            {
+                scoreShowText.color = Color.green;
+            }
+            else if (mathObjParent.GetFirstMathObject() != mathObject && mathObjParent.FirstOneWin())
+            {
+                scoreShowText.color = Color.red;
+            }
+            if (mathObjParent.BothWin())
+            {
+                scoreShowText.color = Color.green;
+            }
 
-            textMeshProUGUI.text = mathObject.GetValue().ToString();
+            player.Score += (int)mathObject.GetValue();
+
+            scoreShowText.text = mathObject.GetValue().ToString();
             OnMathObjectTriggered?.Invoke(this, EventArgs.Empty);
             Destroy(other.gameObject);
         }

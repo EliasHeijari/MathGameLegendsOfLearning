@@ -21,6 +21,8 @@ public class MathObject : MonoBehaviour
 
     public float GetValue() { return value; }
 
+    public void SetValue(float value) { this.value = value; }
+
     public enum MathOperator { addition, substraction, product, division, count }
 
     public static char OperatorToChar(MathOperator mathOperator)

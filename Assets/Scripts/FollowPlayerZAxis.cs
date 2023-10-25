@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+public class FollowPlayerZAxis : MonoBehaviour
 {
     [SerializeField] private Transform player;
-    [SerializeField] private Vector3 offset;
+
     private void Update()
     {
-        transform.position = player.position + offset;
+        transform.position = new Vector3(transform.position.x, transform.position.y, player.position.z);
     }
 }
