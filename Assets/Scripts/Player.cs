@@ -6,10 +6,9 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    private int score;
+    private float score;
     public event EventHandler OnScoreChanged;
-    public int Score { get { return score; } set { score = value; OnScoreChanged?.Invoke(this, EventArgs.Empty); } }
-
+    public float Score { get { return score; } set { score = value; OnScoreChanged?.Invoke(this, EventArgs.Empty); } }
 
 
 }

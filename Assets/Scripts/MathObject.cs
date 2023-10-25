@@ -9,14 +9,17 @@ public class MathObject : MonoBehaviour
     [SerializeField] private TextMeshProUGUI mathCalculationText;
     [SerializeField] private float value;
     private MathExpression mathExpression;
+    public MathOperator mathOperator;
 
 
     private void Awake()
     {
-        mathExpression = MathExpression.GenerateRandom(1, 10);
+        mathExpression = MathExpression.GenerateRandom(1, 10, mathOperator);
         value = mathExpression.value;
         mathCalculationText.text = mathExpression.ToString();
     }
+
+    public float GetValue() { return value; }
 
     public enum MathOperator { addition, substraction, product, division, count }
 
@@ -29,9 +32,9 @@ public class MathObject : MonoBehaviour
             case MathOperator.substraction:
                 return '-';
             case MathOperator.product:
-                return '*';
+                return 'x';
             case MathOperator.division:
-                return '/';
+                return '÷';
             default:
                 return ')';
         }
@@ -96,17 +99,22 @@ public class MathObject : MonoBehaviour
             this.b = float.Parse(bStr);
             value = CalculateOperation(this.a, this.b, this.mathOperator);
         }
-        public static MathExpression GenerateRandom(int minValue, int maxValue)
+        public static MathExpression GenerateRandomOperator(int minValue, int maxValue)
         {
             System.Random random = new System.Random();
             return new MathExpression((MathOperator)random.Next(0, (int)MathOperator.count), random.Next(minValue, maxValue), random.Next(minValue, maxValue));
         }
+        public static MathExpression GenerateRandom(int minValue, int maxValue, MathOperator mathOperator)
+        {
+            System.Random random = new System.Random();
+            return new MathExpression(mathOperator, random.Next(minValue, maxValue), random.Next(minValue, maxValue));
+        }
 
-        private void Calculate()
+        public void Calculate()
         {
             this.value = CalculateOperation(this.a, this.b, this.mathOperator);
         }
-        private float CalculateOperation(float num1, float num2, MathOperator mathOperator)
+        public float CalculateOperation(float num1, float num2, MathOperator mathOperator)
         {
             // Calculate num1 and num2 based on given operation
             switch (mathOperator)

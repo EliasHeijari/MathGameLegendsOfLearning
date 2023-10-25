@@ -18,7 +18,6 @@ public class GameInputs : MonoBehaviour
     private void Movement_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         input = inputActions.Player.Movement.ReadValue<Vector2>().normalized;
-        Debug.Log(input);
     }
 
     public float HorizontalInput()
