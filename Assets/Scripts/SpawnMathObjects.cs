@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnMathObjects : MonoBehaviour
 {
     [SerializeField] private Transform player;
-    [SerializeField] private GameObject mathObjectPrefab;
+    [SerializeField] private GameObject[] mathObjectPrefabs;
     [SerializeField] private float spawnZOffset = 10f;
     [SerializeField] private float repeatSpawnTime = 10f;
     [SerializeField] private float startSpawnTime = 9f;
@@ -35,6 +35,7 @@ public class SpawnMathObjects : MonoBehaviour
     {
         if (spawnObjList.Count + 1 <= maxObjCountAtOnce)
         {
+            GameObject mathObjectPrefab = mathObjectPrefabs[Random.Range(0, mathObjectPrefabs.Length)];
             Vector3 spawnPos = new Vector3(mathObjectPrefab.transform.position.x, mathObjectPrefab.transform.position.y, lastSpawnPosZ + spawnZOffset);
             lastSpawnPosZ = spawnPos.z;
             GameObject mathObject = Instantiate(mathObjectPrefab, spawnPos, Quaternion.identity);

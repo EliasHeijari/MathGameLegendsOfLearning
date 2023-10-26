@@ -22,27 +22,23 @@ public class PlayerScoreManager : MonoBehaviour
         if (other.TryGetComponent(out MathObject mathObject))
         {
             MathObjectParent mathObjParent = mathObject.GetComponentInParent<MathObjectParent>();
-            if (mathObjParent.GetFirstMathObject() == mathObject && mathObjParent.FirstOneWin())
+            bool isWinner = false;
+            foreach (MathObject winnerObj in mathObjParent.WinnerMathObjects())
+            {
+                if (mathObject == winnerObj)
+                {
+                    isWinner = true;
+                }
+            }
+            if (isWinner)
             {
                 scoreShowText.color = Color.green;
             }
-            else if (mathObjParent.GetFirstMathObject() == mathObject && !mathObjParent.FirstOneWin())
+            else
             {
                 scoreShowText.color = Color.red;
             }
-            else if (mathObjParent.GetFirstMathObject() != mathObject && !mathObjParent.FirstOneWin())
-            {
-                scoreShowText.color = Color.green;
-            }
-            else if (mathObjParent.GetFirstMathObject() != mathObject && mathObjParent.FirstOneWin())
-            {
-                scoreShowText.color = Color.red;
-            }
-            if (mathObjParent.BothWin())
-            {
-                scoreShowText.color = Color.green;
-            }
-
+            
             player.Score += (int)mathObject.GetValue();
 
             scoreShowText.text = mathObject.GetValue().ToString();

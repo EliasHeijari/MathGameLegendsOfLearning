@@ -1,43 +1,55 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static MathObject;
 
 public class MathObjectParent : MonoBehaviour
 {
-    [SerializeField] private MathObject mathObject0;
-    [SerializeField] private MathObject mathObject1;
-    private bool firstOneWin;
-    private bool bothWin = false;
+    [SerializeField] private MathObject[] mathObjects;
+    private List<float> mathObjectsValues = new List<float>();
+    private List<MathObject> winnerMathObjects = new List<MathObject>();
 
     private void Awake()
     {
-        MathOperator parentMathOperator = (MathOperator)Random.Range(0, (int)MathOperator.count);
-        mathObject0.mathOperator = parentMathOperator;
-        mathObject1.mathOperator = parentMathOperator;
+        MathOperator parentMathOperator = (MathOperator)UnityEngine.Random.Range(0, (int)MathOperator.count);
+        foreach(MathObject obj in mathObjects)
+        {
+            obj.mathOperator = parentMathOperator;
+        }
         StartCoroutine(MathOperatorsBValue());
     }
 
     private IEnumerator MathOperatorsBValue()
     {
         yield return new WaitForNextFrameUnit();
-        if (mathObject0.GetValue() > mathObject1.GetValue()) { firstOneWin = true; }
-        if (mathObject0.GetValue() == mathObject1.GetValue()) { bothWin = true; }
+
+        foreach(MathObject obj in mathObjects)
+        {
+            mathObjectsValues.Add(obj.GetValue());
+        }
+        float highestValue = 0;
+        foreach (float mathObjValue in mathObjectsValues)
+        {
+            if (mathObjValue >= highestValue)
+            {
+                highestValue = mathObjValue;
+            }
+        }
+        foreach (MathObject mathObject in mathObjects)
+        {
+            if (mathObject.GetValue() >= highestValue)
+            {
+                winnerMathObjects.Add(mathObject);
+            }
+        }
+
     }
 
-    public bool FirstOneWin()
+    public List<MathObject> WinnerMathObjects()
     {
-        return firstOneWin;
-    }
-
-    public bool BothWin()
-    {
-        return bothWin;
-    }
-
-    public MathObject GetFirstMathObject() 
-    {
-        return mathObject0;
+        return winnerMathObjects;
     }
 }

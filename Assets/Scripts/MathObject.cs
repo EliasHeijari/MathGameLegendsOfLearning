@@ -8,7 +8,9 @@ public class MathObject : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI mathCalculationText;
     [SerializeField] private float value;
+    [SerializeField] private Material[] materials;
     private MathExpression mathExpression;
+    private MeshRenderer meshRenderer;
     public MathOperator mathOperator;
 
 
@@ -17,6 +19,27 @@ public class MathObject : MonoBehaviour
         mathExpression = MathExpression.GenerateRandom(1, 10, mathOperator);
         value = mathExpression.value;
         mathCalculationText.text = mathExpression.ToString();
+        meshRenderer = GetComponent<MeshRenderer>();
+        SetMaterial();
+    }
+
+    private void SetMaterial()
+    {
+        switch (mathOperator)
+        {
+            case MathOperator.addition:
+                meshRenderer.material = materials[0];
+                break;
+            case MathOperator.substraction:
+                meshRenderer.material = materials[1];
+                break;
+            case MathOperator.product:
+                meshRenderer.material = materials[2];
+                break;
+            case MathOperator.division:
+                meshRenderer.material = materials[3];
+                break;
+        }
     }
 
     public float GetValue() { return value; }
