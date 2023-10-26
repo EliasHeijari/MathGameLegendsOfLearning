@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerScoreManager : MonoBehaviour
 {
@@ -37,6 +36,7 @@ public class PlayerScoreManager : MonoBehaviour
             else
             {
                 scoreShowText.color = Color.red;
+                player.DecreaseHealth();
             }
             
             player.Score += (int)mathObject.GetValue();
