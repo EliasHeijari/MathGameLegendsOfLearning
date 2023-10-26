@@ -721,7 +721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameInput: {fileID: 771672224}
   horizontalSpeed: 550
-  runSpeed: 300
+  runSpeed: 400
 --- !u!114 &223974233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,6 +752,7 @@ MonoBehaviour:
   - {fileID: 156199865}
   - {fileID: 1870163010}
   - {fileID: 301608725}
+  deathParticlePrefab: {fileID: 270338740702918296, guid: cc6cc6b8e761764429588a3ed8e3ea38, type: 3}
 --- !u!1 &246272158
 GameObject:
   m_ObjectHideFlags: 0

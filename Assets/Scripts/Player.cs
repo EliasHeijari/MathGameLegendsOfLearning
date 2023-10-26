@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private int health;
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private Image[] healthImages;
+    [SerializeField] private GameObject deathParticlePrefab;
 
     private void Start()
     {
@@ -39,6 +40,8 @@ public class Player : MonoBehaviour
 
     private void GameOver()
     {
+        GameObject deathParticle = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
+        Destroy(deathParticle, 3f);
         Destroy(gameObject);
     }
 

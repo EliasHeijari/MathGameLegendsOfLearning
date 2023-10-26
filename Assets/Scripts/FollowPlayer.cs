@@ -8,6 +8,9 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField] private Vector3 offset;
     private void Update()
     {
-        transform.position = player.position + offset;
+        if (player != null)
+        {
+            transform.position = player.position + offset;
+        }
     }
 }
