@@ -28,7 +28,7 @@ public class MathObjectParent : MonoBehaviour
 
         foreach(MathObject obj in mathObjects)
         {
-            mathObjectsValues.Add(obj.GetValue());
+            mathObjectsValues.Add(obj.Value);
         }
         float highestValue = 0;
         foreach (float mathObjValue in mathObjectsValues)
@@ -40,7 +40,7 @@ public class MathObjectParent : MonoBehaviour
         }
         foreach (MathObject mathObject in mathObjects)
         {
-            if (mathObject.GetValue() >= highestValue)
+            if (mathObject.Value >= highestValue)
             {
                 winnerMathObjects.Add(mathObject);
             }

@@ -9,9 +9,12 @@ public class MathObject : MonoBehaviour
     [SerializeField] private TextMeshProUGUI mathCalculationText;
     [SerializeField] private float value;
     [SerializeField] private Material[] materials;
+    [SerializeField] private GameObject shadderParticlePrefab;
     private MathExpression mathExpression;
     private MeshRenderer meshRenderer;
     public MathOperator mathOperator;
+
+    public float Value { get { return value; } set { this.value = value; } }
 
 
     private void Awake()
@@ -21,6 +24,13 @@ public class MathObject : MonoBehaviour
         mathCalculationText.text = mathExpression.ToString();
         meshRenderer = GetComponent<MeshRenderer>();
         SetMaterial();
+    }
+
+    public void PlayDestroyParticle()
+    {
+        GameObject particleObj = Instantiate(shadderParticlePrefab, transform.position, Quaternion.identity);
+        particleObj.GetComponent<ParticleSystemRenderer>().material = meshRenderer.material;
+        Destroy(particleObj, 2.5f);
     }
 
     private void SetMaterial()
@@ -41,10 +51,6 @@ public class MathObject : MonoBehaviour
                 break;
         }
     }
-
-    public float GetValue() { return value; }
-
-    public void SetValue(float value) { this.value = value; }
 
     public enum MathOperator { addition, substraction, product, division, count }
 

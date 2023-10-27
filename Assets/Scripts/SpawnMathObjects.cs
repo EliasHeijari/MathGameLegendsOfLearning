@@ -23,10 +23,17 @@ public class SpawnMathObjects : MonoBehaviour
     {
         foreach (GameObject obj in spawnObjList.ToList())
         {
-            if (obj.transform.position.z < player.position.z)
+            if (obj != null)
+            {
+                if (obj.transform.position.z < player.position.z)
+                {
+                    spawnObjList.Remove(obj);
+                    Destroy(obj.gameObject);
+                }
+            }
+            else
             {
                 spawnObjList.Remove(obj);
-                Destroy(obj.gameObject);
             }
         }
     }

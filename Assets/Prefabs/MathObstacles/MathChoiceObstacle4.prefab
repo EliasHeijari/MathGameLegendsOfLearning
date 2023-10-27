@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 01f12b66984d2ac4aa4108a6752b8d64, type: 2}
   - {fileID: 2100000, guid: 0cadd46ea6bb0544aa6024b21da8c4ad, type: 2}
   - {fileID: 2100000, guid: 3793fbe670103264dbe591e5cbb5b5cf, type: 2}
+  shadderParticlePrefab: {fileID: 2210962826352474540, guid: 7d1f4426c8580eb4297852e3d6d96a9d, type: 3}
   mathOperator: 0
 --- !u!1 &2825310338137353613
 GameObject:
@@ -491,6 +492,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 01f12b66984d2ac4aa4108a6752b8d64, type: 2}
   - {fileID: 2100000, guid: 0cadd46ea6bb0544aa6024b21da8c4ad, type: 2}
   - {fileID: 2100000, guid: 3793fbe670103264dbe591e5cbb5b5cf, type: 2}
+  shadderParticlePrefab: {fileID: 2210962826352474540, guid: 7d1f4426c8580eb4297852e3d6d96a9d, type: 3}
   mathOperator: 0
 --- !u!1 &3687043878031094675
 GameObject:
@@ -753,6 +755,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 01f12b66984d2ac4aa4108a6752b8d64, type: 2}
   - {fileID: 2100000, guid: 0cadd46ea6bb0544aa6024b21da8c4ad, type: 2}
   - {fileID: 2100000, guid: 3793fbe670103264dbe591e5cbb5b5cf, type: 2}
+  shadderParticlePrefab: {fileID: 2210962826352474540, guid: 7d1f4426c8580eb4297852e3d6d96a9d, type: 3}
   mathOperator: 0
 --- !u!1 &5356006532104795742
 GameObject:
@@ -1149,6 +1152,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 01f12b66984d2ac4aa4108a6752b8d64, type: 2}
   - {fileID: 2100000, guid: 0cadd46ea6bb0544aa6024b21da8c4ad, type: 2}
   - {fileID: 2100000, guid: 3793fbe670103264dbe591e5cbb5b5cf, type: 2}
+  shadderParticlePrefab: {fileID: 2210962826352474540, guid: 7d1f4426c8580eb4297852e3d6d96a9d, type: 3}
   mathOperator: 0
 --- !u!1 &7340297200778837945
 GameObject:

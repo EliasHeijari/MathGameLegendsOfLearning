@@ -20,6 +20,9 @@ public class PlayerScoreManager : MonoBehaviour
     {
         if (other.TryGetComponent(out MathObject mathObject))
         {
+            // mathObject Shadder Particle Instantiate and destroy after time
+            mathObject.PlayDestroyParticle();
+
             MathObjectParent mathObjParent = mathObject.GetComponentInParent<MathObjectParent>();
             bool isWinner = false;
             foreach (MathObject winnerObj in mathObjParent.WinnerMathObjects())
@@ -39,11 +42,11 @@ public class PlayerScoreManager : MonoBehaviour
                 player.DecreaseHealth();
             }
             
-            player.Score += (int)mathObject.GetValue();
+            player.Score += (int)mathObject.Value;
 
-            scoreShowText.text = mathObject.GetValue().ToString();
+            scoreShowText.text = mathObject.Value.ToString();
             OnMathObjectTriggered?.Invoke(this, EventArgs.Empty);
-            Destroy(other.gameObject);
+            Destroy(mathObjParent.gameObject);
         }
     }
 }
