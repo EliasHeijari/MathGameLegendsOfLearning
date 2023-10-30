@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private Image[] healthImages;
     [SerializeField] private GameObject deathParticlePrefab;
+    public event EventHandler OnGameOver;
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
 
     private void GameOver()
     {
+        OnGameOver?.Invoke(this, EventArgs.Empty);
         GameObject deathParticle = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         Destroy(deathParticle, 3f);
         Destroy(gameObject);

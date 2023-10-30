@@ -16,6 +16,11 @@ public class PlayerScoreManager : MonoBehaviour
         player = GetComponent<Player>();
     }
 
+    public float GetScore()
+    {
+        return player.Score;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out MathObject mathObject))

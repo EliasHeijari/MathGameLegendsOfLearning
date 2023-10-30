@@ -14,7 +14,7 @@ public class SpawnMathObjects : MonoBehaviour
     private float lastSpawnPosZ;
     List<GameObject> spawnObjList = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
         InvokeRepeating("SpawnObject", startSpawnTime, repeatSpawnTime);
     }
@@ -48,5 +48,10 @@ public class SpawnMathObjects : MonoBehaviour
             GameObject mathObject = Instantiate(mathObjectPrefab, spawnPos, Quaternion.identity);
             spawnObjList.Add(mathObject);
         }
+    }
+
+    public void SetSpawnZOffset(int value)
+    {
+        spawnZOffset = value;
     }
 }
