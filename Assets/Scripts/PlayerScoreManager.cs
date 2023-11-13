@@ -12,6 +12,7 @@ public class PlayerScoreManager : MonoBehaviour
     [SerializeField] private AudioClip glassShadderClip;
     [SerializeField] private AudioClip scoreClip;
     [SerializeField] private AudioClip wrongClip;
+    [SerializeField] private AudioClip KillCubeClip;
     [SerializeField] private AudioSource audioSource1;
     [SerializeField] private AudioSource audioSource2;
 
@@ -69,6 +70,8 @@ public class PlayerScoreManager : MonoBehaviour
             player.DecreaseHealth();
             killCube.PlayDestroyParticle();
             Destroy(other.gameObject);
+            audioSource1.clip = KillCubeClip;
+            audioSource1.Play();
         }
     }
 }

@@ -855,6 +855,7 @@ MonoBehaviour:
   glassShadderClip: {fileID: 8300000, guid: 540ee233cba0b204c9173b5b62e24422, type: 3}
   scoreClip: {fileID: 8300000, guid: 8c86397b694f8a145aa4e297ee2fd1d3, type: 3}
   wrongClip: {fileID: 8300000, guid: 9c9b466a9feb5c0448bcd2670a8a542f, type: 3}
+  KillCubeClip: {fileID: 8300000, guid: 5267fa39827f746478c7899eed4dd79e, type: 3}
   audioSource1: {fileID: 223974235}
   audioSource2: {fileID: 223974236}
 --- !u!114 &223974234

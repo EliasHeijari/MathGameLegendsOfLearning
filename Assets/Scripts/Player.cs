@@ -54,7 +54,6 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Working");
             GetComponent<Rigidbody>().AddForce(Vector3.up * 350f * Time.deltaTime, ForceMode.Impulse);
         }
     }
