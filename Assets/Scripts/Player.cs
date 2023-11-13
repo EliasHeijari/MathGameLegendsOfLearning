@@ -50,4 +50,13 @@ public class Player : MonoBehaviour
     public float Score { get { return score; } set { score = value; OnScoreChanged?.Invoke(this, EventArgs.Empty); } }
 
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Working");
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 350f * Time.deltaTime, ForceMode.Impulse);
+        }
+    }
+
 }

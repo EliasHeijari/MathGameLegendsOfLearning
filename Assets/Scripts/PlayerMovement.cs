@@ -38,4 +38,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void SetRunSpeed(float amount)
+    {
+        runSpeed = amount;
+    }
+    public void SetHorizontalSpeed(float amount)
+    {
+        horizontalSpeed = amount;
+    }
+
 }

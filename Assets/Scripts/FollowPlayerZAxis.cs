@@ -8,6 +8,10 @@ public class FollowPlayerZAxis : MonoBehaviour
 
     private void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, player.position.z);
+        if (transform != null)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, player.position.z);
+        }
+        
     }
 }
