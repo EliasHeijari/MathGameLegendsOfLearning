@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private Image[] healthImages;
     [SerializeField] private GameObject deathParticlePrefab;
+    [SerializeField] private AudioSource dyingAudioSource;
     public event EventHandler OnGameOver;
 
     private void Start()
@@ -44,7 +45,9 @@ public class Player : MonoBehaviour
         OnGameOver?.Invoke(this, EventArgs.Empty);
         GameObject deathParticle = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         Destroy(deathParticle, 3f);
-        Destroy(gameObject);
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<PlayerMovement>().enabled = false;
+        dyingAudioSource.Play();
     }
 
     public float Score { get { return score; } set { score = value; OnScoreChanged?.Invoke(this, EventArgs.Empty); } }

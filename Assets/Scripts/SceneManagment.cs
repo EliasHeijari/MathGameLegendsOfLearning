@@ -13,6 +13,7 @@ public class SceneManagment : MonoBehaviour
     public void LoadPreviousScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Destroy(FindObjectOfType<MainMusicManager>().gameObject);
     }
 
     public void LoadActiveScene()

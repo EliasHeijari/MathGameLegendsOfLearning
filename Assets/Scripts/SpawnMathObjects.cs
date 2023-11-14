@@ -26,7 +26,7 @@ public class SpawnMathObjects : MonoBehaviour
     {
         foreach (GameObject obj in spawnObjList.ToList())
         {
-            if (obj != null)
+            if (obj != null && player != null)
             {
                 if (obj.transform.position.z < player.position.z)
                 {
