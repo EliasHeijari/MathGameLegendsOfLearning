@@ -112,5 +112,5 @@ Material:
     m_Colors:
     - _Color: {r: 0, g: 0.5481925, b: 1, a: 0.33333334}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GridColor: {r: 0, g: 0.29522735, b: 0.5377358, a: 0}
+    - _GridColor: {r: 0, g: 0.5474453, b: 1, a: 0}
   m_BuildTextureStacks: []

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MathObjMat3
+  m_Name: MathObjMat4
   m_Shader: {fileID: -6465566751694194690, guid: 6f643b4c586d550458841a083abb3b10, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -112,5 +112,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 0.9578313, b: 0, a: 0.33333334}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GridColor: {r: 1, g: 0.9512195, b: 0, a: 1}
+    - _GridColor: {r: 0, g: 0.9642236, b: 1, a: 1}
   m_BuildTextureStacks: []
