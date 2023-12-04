@@ -21,6 +21,15 @@ public class Player : MonoBehaviour
         health = maxHealth;
     }
 
+    private void Update()
+    {
+        if (transform.position.y <= -15f)
+        {
+            health = 1;
+            DecreaseHealth();
+        }
+    }
+
     public int GetHealth() { return health; }
     public void DecreaseHealth()
     {
@@ -36,7 +45,7 @@ public class Player : MonoBehaviour
     {
         for (int i = 2; i >= health; --i)
         {
-            healthImages[i].color = Color.red;
+            healthImages[i].color = Color.black;
         }
     }
 
